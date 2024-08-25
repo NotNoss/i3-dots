@@ -1,0 +1,108 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:blue'
+    template = '{{ .Path }}'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = 'p:blue'
+    background = 'transparent'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <white>{{if gt .Behind 0}}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+    
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = 'p:blue'
+    background = 'transparent'
+    template = '❯'
+
+[[blocks]]
+  type = 'rprompt'
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'plain'
+    foreground = 'p:green'
+    background = 'transparent'
+    template = ' '
+
+    [blocks.segments.properties]
+      display_mode = 'files'
+      fetch_package_manager = false
+      home_enabled = false
+
+  [[blocks.segments]]
+    type = 'go'
+    style = 'plain'
+    foreground = 'p:blue'
+    background = 'transparent'
+    template = ' '
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = 'p:yellow'
+    background = 'transparent'
+    template = ' '
+
+    [blocks.segments.properties]
+      display_mode = 'files'
+      fetch_version = false
+      fetch_virtual_env = false
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    foreground = 'p:white'
+    background = 'transparent'
+    template = 'at <p:blue><b>{{ .CurrentDate | date .Format }}</b></>'
+
+    [blocks.segments.properties]
+    time_format = "3:04:05 PM"
+
+[transient_prompt]
+  foreground_templates = [
+    "{{if gt .Code 0}}p:red{{end}}",
+    "{{if eq .Code 0}}p:blue{{end}}",
+  ]
+  foreground = 'p:blue'
+  background = 'transparent'
+  template = '❯ '
+
+[secondary_prompt]
+  foreground = 'p:black'
+  background = 'transparent'
+  template = '❯❯ '
+
+[palette]
+  blue = '#7aa2f7'
+  red = '#f7768e'
