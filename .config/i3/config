@@ -35,7 +35,7 @@ workspace 4 output $four
 workspace 8 output $four
 
 # Set primary monitor
-exec ~/dots/four.sh
+exec ~/i3-dots/four.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
