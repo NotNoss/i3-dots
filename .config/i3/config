@@ -50,7 +50,7 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 
 # Adding borders to windows
-exec --no-startup-id xborders
+exec --no-startup-id "sh -c 'sleep 10; exec xborders'"
 
 # Set wallpaper
 exec --no-startup-id feh --bg-fill ~/Documents/wallpaper/tn-glados-better.jpg
@@ -62,7 +62,7 @@ exec --no-startup-id picom -b
 exec --no-startup-id ~/.config/polybar/launch.sh
 
 # Cache wallpaper
-exec --no-startup-id betterlockscreen -u ~/Documents/wallpaper/thecakeisalie --fx dim
+exec --no-startup-id betterlockscreen -u ~/Documents/wallpaper/thecakeisalie.png --fx dim
 
 # Auto lock the screen
 # exec --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l dim' &
@@ -225,11 +225,42 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym mod1+Shift+m move scratchpad
+bindsym mod1+Shift+c scratchpad show
+
+for_window [class="kitty-scratch"], move scratchpad
+exec "kitty --class=[kitty-scratch]"
+bindsym mod1+t [class="kitty-scratch"] scratchpad show
+
+for_window [class="htop-scratch"], move scratchpad
+exec "kitty --class=htop-scratch btop"
+bindsym mod1+b [class="htop-scratch"] scratchpad show
+
+for_window [class="yazi-scratch"], move scratchpad
+exec "kitty --class=yazi-scratch yazi"
+bindsym mod1+y [class="yazi-scratch"] scratchpad show
+
+for_window [class="pavucontrol"], move scratchpad
+exec "pavucontrol"
+bindsym mod1+p [class="pavucontrol"] scratchpad show
+
+for_window [class="vesktop"], move scratchpad
+#exec "'sh -c sleep 60; exec vesktop'"
+bindsym mod1+d [class="vesktop"] scratchpad show, resize set 1600 900, move position center
+
+for_window [class="steam"], move scratchpad
+exec "steam"
+bindsym mod1+s [class="steam"] scratchpad show, move position center
+
+for_window [class="bottles"], move scratchpad
+exec "flatpak run com.usebottles.bottles"
+bindsym mod1+Shift+b [class="bottles"] scratchpad show
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
 # Add inner gaps
-gaps inner 5px
+gaps inner 10px
 
 # Add outer gaps
 gaps outer 5px
