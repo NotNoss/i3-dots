@@ -49,14 +49,14 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# Adding borders to windows
-exec --no-startup-id "sh -c 'sleep 10; exec xborders'"
-
 # Set wallpaper
 exec --no-startup-id feh --bg-fill ~/Documents/wallpaper/tn-glados-better.jpg
 
 # Start Picom
 exec --no-startup-id picom -b
+
+# Adding borders to windows
+exec --no-startup-id "sh -c 'sleep 10; exec xborders'"
 
 # Start polybar
 exec --no-startup-id ~/.config/polybar/launch.sh
