@@ -2,4 +2,8 @@
 
 internal_ip=$(ip addr | grep 'inet' | awk '/10./ {print $2}')
 
-echo $internal_ip
+if [[ ! $internal_ip ]]; then
+  echo 0.0.0.0
+else
+  echo $internal_ip
+fi
