@@ -15,12 +15,12 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "Firacode Nerd";
-    background:                  #11092D;
-    background-alt:              #281657;
-    foreground:                  #FFFFFF;
-    selected:                    #DF5296;
-    active:                      #6E77FF;
-    urgent:                      #8E3596;
+    background:                  #15161EFF;
+    background-alt:              #1A1B26FF;
+    foreground:                  #C0CAF5FF;
+    selected:                    #33367CFF;
+    active:                      #414868FF;
+    urgent:                      #F7768EFF;
 }
 
 /*
