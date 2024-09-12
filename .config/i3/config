@@ -56,7 +56,7 @@ exec --no-startup-id feh --bg-fill ~/Documents/wallpaper/tn-glados-better.jpg
 exec --no-startup-id picom -b
 
 # Adding borders to windows
-exec --no-startup-id "sh -c 'sleep 10; exec xborders'"
+exec --no-startup-id xborders --disable-version-warning
 
 # Start polybar
 exec --no-startup-id ~/.config/polybar/launch.sh
@@ -138,9 +138,9 @@ bindsym $mod+Control+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -225,24 +225,24 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym mod1+Shift+m move scratchpad
-bindsym mod1+Shift+c scratchpad show
-
-for_window [class="kitty-scratch"], move scratchpad
-exec "kitty --class=[kitty-scratch]"
-bindsym mod1+t [class="kitty-scratch"] scratchpad show
-
-for_window [class="htop-scratch"], move scratchpad
-exec "kitty --class=htop-scratch btop"
-bindsym mod1+b [class="htop-scratch"] scratchpad show
-
-for_window [class="yazi-scratch"], move scratchpad
-exec "kitty --class=yazi-scratch yazi"
-bindsym mod1+y [class="yazi-scratch"] scratchpad show
-
-for_window [class="pavucontrol"], move scratchpad
-exec "pavucontrol"
-bindsym mod1+p [class="pavucontrol"] scratchpad show
+# bindsym mod1+Shift+m move scratchpad
+# bindsym mod1+Shift+c scratchpad show
+#
+# for_window [class="kitty-scratch"], move scratchpad
+# exec "kitty --class=[kitty-scratch]"
+# bindsym mod1+t [class="kitty-scratch"] scratchpad show
+#
+# for_window [class="htop-scratch"], move scratchpad
+# exec "kitty --class=htop-scratch btop"
+# bindsym mod1+b [class="htop-scratch"] scratchpad show
+#
+# for_window [class="yazi-scratch"], move scratchpad
+# exec "kitty --class=yazi-scratch yazi"
+# bindsym mod1+y [class="yazi-scratch"] scratchpad show
+#
+# for_window [class="pavucontrol"], move scratchpad
+# exec "pavucontrol"
+# bindsym mod1+p [class="pavucontrol"] scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
