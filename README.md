@@ -12,7 +12,8 @@
 - [Picom](https://aur.archlinux.org/packages/picom-ft-udev)
 
 # Setup
-This config is now mixed with my sway config as I use both.
-To copy my setup, clone this repo and move dots/.config/i3, dots/.config/polybar and dots/.config/picom to ~/.config/
-Then clone https://github.com/NotNoss/sway-dots.git and move sway-dots/Desktop/.zshrc to ~/
-Then move sway-dots/Desktop/.config/kitty, sway-dots/Desktop/.config/ohmyposh, sway-dots/Desktop/.config/rofi, sway-dots/Desktop/.config/tmux to ~/.config
+```bash
+git clone https://github.com/NotNoss/i3-dots.git
+cd i3-dots
+stow .
+```

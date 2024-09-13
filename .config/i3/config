@@ -62,7 +62,7 @@ exec --no-startup-id xborders --disable-version-warning
 exec --no-startup-id ~/.config/polybar/launch.sh
 
 # Cache wallpaper
-exec --no-startup-id betterlockscreen -u ~/Documents/wallpaper/thecakeisalie.png --fx dim
+exec --no-startup-id betterlockscreen -u ~/Documents/wallpaper/aperture_labs.png --fx dim
 
 # Auto lock the screen
 # exec --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l dim' &
