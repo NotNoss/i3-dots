@@ -73,6 +73,9 @@ alias c='clear'
 alias ssh="kitty +kitten ssh"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
+alias i='yay -S'
+alias u='yay -Syu'
+alias um='yay -Syy' 
 
 # Shell integrations
 eval "$(fzf --zsh)"
