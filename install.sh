@@ -7,7 +7,7 @@ git clone https://github.com/NotNoss/i3-dots.git ~/i3-dots
 cd ~/i3-dots/
 
 # Install packages
-yay -S $(cat packages.txt)
+#yay -S $(cat packages.txt)
 
 # Check for conflicting files
 if [ -d "~/.config/i3/" ]; then

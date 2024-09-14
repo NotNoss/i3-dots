@@ -6,6 +6,7 @@ export PATH=$PATH:/home/noss/.cargo/bin
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:
+export EDITOR="nvim"
 
 # Download Zinit
 if [ ! -d "$ZINIT_HOME" ]; then
