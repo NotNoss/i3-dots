@@ -77,15 +77,8 @@ macos_titlebar_color #16161e
 # active_tab_background   #1f2335
 # inactive_tab_background #1f2335
 # macos_titlebar_color #1f2335
-# font_family "Fira Code Nerd"
+
+font_family "Fira Code Nerd"
 
 underline_thickness 5
 underline_position 5
-
-
-# BEGIN_KITTY_FONTS
-font_family      family="FiraCode Nerd Font"
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
-# END_KITTY_FONTS
