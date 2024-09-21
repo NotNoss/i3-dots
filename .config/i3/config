@@ -17,6 +17,7 @@ set $menu --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
 set $power --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh
 set $screenshot ~/.config/rofi/applets/bin/screenshot.sh
 set $appasroot --no-startup-id ~/.config/rofi/applets/bin/appasroot.sh
+set $bt --no-startup-id ~/.config/rofi/applets/bin/bluetooth.sh
 
 # Monitors
 set $one DP-2
