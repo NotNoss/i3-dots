@@ -5,7 +5,7 @@ cd $dir
 wallpaper="none is selected"
 set="feh --bg-fill"
 view="feh"
-startup_config_file="/home/$USER/.config/i3/config"
+startup_config_file="/home/$USER/.config/i3/config.bak"
 theme="/home/$USER/.config/rofi/applets/type-1/style-1.rasi"
 
 selectpic() {
@@ -30,7 +30,7 @@ action() {
 }
 
 set_wall() {
-  $set $wallpaper && killall feh &
+  killall feh && $set $wallpaper
 }
 
 view_wall() {
@@ -50,8 +50,8 @@ set_after_view() {
 
 set_permanant() {
   set_wall
-  sed -i '/feh/d' $startup_config_file
-  echo "$set $dir$wallpaper &" >>$startup_config_file
+  sed -i 's/^feh .*$/exec --no-startup-id $set $dir$wallpaper/g' $startup_config_file
+  #echo "$set $dir$wallpaper &" >>$startup_config_file
 }
 
 selectpic
