@@ -14,6 +14,8 @@
 # Install Script
 The install script (install.sh) is still under development. I can not confirm that it is working or not. Please keep in mind that the install script as of now assumes this is a fresh install and removes any conflicting dot files. It installs everything that I currently use as  this is my dots. I might make it more of a customized install later for the fun of it if I want.
 
+Testing dot update script
+
 # Setup
 ```bash
 git clone https://github.com/NotNoss/i3-dots.git
