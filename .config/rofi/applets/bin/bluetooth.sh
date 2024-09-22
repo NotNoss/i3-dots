@@ -7,6 +7,7 @@ themeFile="$HOME/.config/rofi/applets/type-1/style-1.rasi"
 devices="none"
 name="none"
 mac="none"
+status="disconnected"
 
 # Theme Elements
 if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
@@ -109,15 +110,15 @@ list_devices() {
 }
 
 check_connected() {
-  check=$(bluetoothctl devices Connected | grep "$name" | awk '{print $3}')
+  check="$(bluetoothctl devices Connected | grep "$mac" | awk '{print $2}')"
 
-  if [[ check == $name ]]; then
-    echo "connected"
+  if [[ $check == $mac ]]; then
+    status="connected"
   else
-    echo "disconnected"
+    status="disconnected"
   fi
 
-  
+  device_menu
 }
 
 connect_bt_device() {
@@ -142,14 +143,11 @@ block_bt_device() {
 }
 
 device_menu() {
-  connected=$(check_connected)
   connect="none"
 
-  echo $connected
-
-  if [[ connected == "connected" ]]; then
+  if [[ $status == "connected" ]]; then
     connect="disconnect"
-  elif [[ connected == "disconnected" ]]; then
+  elif [[ $status == "disconnected" ]]; then
     echo "why"
     connect="connect"
   fi
@@ -178,14 +176,14 @@ device_menu() {
 }
 
 list_paired() {
-  devices=$(bluetoothctl devices Trusted | grep "Device" | awk '{print $3}' | rofi -dmenu -p "select a device" -theme ${themeFile})
+  devices=$(bluetoothctl devices Trusted | grep "Device" | awk '{print $3 " - " $2}' | rofi -dmenu -p "select a device" -theme ${themeFile})
 
   if [[ $devices == "q" || $devices == "" ]]; then
     exit
   else
-    name=$(echo -e bluetoothctl devices Trusted | grep $devices | awk '{print $3}')
-    mac=$(echo -e bluetoothctl devices Trusted | grep $devices | awk '{print $2}')
-    device_menu
+    name=$(echo -e $devices | awk '{print $1}')
+    mac=$(echo -e $devices | awk '{print $3}')
+    check_connected
   fi
 }
 
