@@ -11,6 +11,7 @@ git fetch $remote_repo_url
 update_check="$(git diff $local_repo $remote_repo | grep "index")"
 
 if [[ $update_check == "" ]]; then
+  notify-send 'No Updates Found' 'Your dotfiles are up to date' --icon=dialog-information
   exit
 else
   notify-send 'Updates Found' 'There are dotfile updates found. These updates are being applied' --icon=dialog-information
