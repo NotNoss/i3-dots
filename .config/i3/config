@@ -18,6 +18,7 @@ set $power --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh
 set $screenshot ~/.config/rofi/applets/bin/screenshot.sh
 set $appasroot --no-startup-id ~/.config/rofi/applets/bin/appasroot.sh
 set $bt --no-startup-id ~/.config/rofi/applets/bin/bluetooth.sh
+set $wall --no-startup-id ~/.config/rofi/applets/bin/wallpaper.sh
 
 # Monitors
 set $one DP-2
@@ -106,6 +107,9 @@ bindsym $mod+x exec $power
 bindsym $mod+Shift+s exec $screenshot
 bindsym $mod+Shift+d exec $appasroot
 bindsym $mod+b exec $bt
+bindsym $mod+w exec $wall
+
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
