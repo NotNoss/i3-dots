@@ -1,21 +1,19 @@
-#!/bin/sh
+#!/bin/sh -x
 
 local_repo_path="$HOME/i3-dots"
 local_repo="main"
 remote_repo="origin/main"
+remote_repo_url="https://github.com/NotNoss/i3-dots.git"
 
 cd $local_repo_path
 
-update_check="$(git diff $local_repo $remote_repo)"
+git fetch $remote_repo_url
+update_check="$(git diff $local_repo $remote_repo | grep "index")"
 
 if [[ $update_check == "" ]]; then
-  echo "no updates found"
+  exit
 else
-  echo "updates found"
+  notify-send 'Updates Found' 'There are dotfile updates found. These updates are being applied' --icon=dialog-information
+  git pull
+  i3-msg restart
 fi
-
-#git fetch
-
-#update_check="$(git status -sb | grep "behind" | awk '{print $3}' | sed 's/\[//g')"
-
-#echo $update_check
