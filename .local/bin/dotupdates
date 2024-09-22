@@ -1,0 +1,21 @@
+#!/bin/sh
+
+local_repo_path="$HOME/i3-dots"
+local_repo="main"
+remote_repo="origin/main"
+
+cd $local_repo_path
+
+update_check="$(git diff $local_repo $remote_repo)"
+
+if [[ $update_check == "" ]]; then
+  echo "no updates found"
+else
+  echo "updates found"
+fi
+
+#git fetch
+
+#update_check="$(git status -sb | grep "behind" | awk '{print $3}' | sed 's/\[//g')"
+
+#echo $update_check
