@@ -18,7 +18,8 @@ set $power --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh
 set $screenshot ~/.config/rofi/applets/bin/screenshot.sh
 set $appasroot --no-startup-id ~/.config/rofi/applets/bin/appasroot.sh
 set $bt --no-startup-id ~/.config/rofi/applets/bin/bluetooth.sh
-set $wall --no-startup-id ~/.config/rofi/applets/bin/wallpaper.sh
+set $wall --no-startup-id ~/.config/rofi/applets/bin/wallpapers.sh
+set $lock --no-startup-id ~/.config/rofi/applets/bin/lockscreen.sh
 
 # Monitors
 set $one DP-2
@@ -60,7 +61,7 @@ exec --no-startup-id dunst
 exec --no-startup-id autotiling
 
 # Set wallpaper
-exec --no-startup-id feh --bg-fill ~/Documents/wallpaper/tn-glados-better.jpg
+exec --no-startup-id feh --bg-fill /home/noss/Documents/wallpaper/forest.png
 
 # Start Picom
 exec --no-startup-id picom -b
@@ -72,7 +73,7 @@ exec --no-startup-id xborders --disable-version-warning
 exec --no-startup-id ~/.config/polybar/launch.sh
 
 # Cache wallpaper
-exec --no-startup-id betterlockscreen -u ~/Documents/wallpaper/aperture_labs.png --fx dim
+exec --no-startup-id betterlockscreen -u /home/noss/Documents/wallpaper/deer.jpg --fx dim
 
 # Auto lock the screen
 # exec --no-startup-id xautolock -time 15 -locker 'betterlockscreen -l dim' &
@@ -110,6 +111,7 @@ bindsym $mod+Shift+s exec $screenshot
 bindsym $mod+Shift+d exec $appasroot
 bindsym $mod+b exec $bt
 bindsym $mod+w exec $wall
+bindsym $mod+Control+l exec $lock
 
 
 # A more modern dmenu replacement is rofi:
