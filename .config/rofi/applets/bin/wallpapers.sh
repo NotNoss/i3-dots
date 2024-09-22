@@ -1,29 +1,18 @@
-#!/bin/bash -x
+#!/bin/bash
 
-dir="/home/$USER/Documents/wallpaper/"
+dir="$HOME/Documents/wallpaper/"
 cd $dir
 wallpaper="none is selected"
 set="feh --bg-fill"
 view="feh"
-startup_config_file="$HOME/.config/i3/config.bak"
-theme="/home/$USER/.config/rofi/applets/type-1/style-1.rasi"
-
-kill_process() {
-  proc="$(ps -A | grep "feh")"
-
-  if [[ $proc == "" ]]; then
-    exit
-  else
-    killall feh
-    exit
-  fi
-}
+startup_config_file="$HOME/.config/i3/config"
+theme="$HOME/.config/rofi/applets/type-1/style-1.rasi"
 
 selectpic() {
   wallpaper=$(ls $dir | rofi -dmenu -p "select a wallpaper" -theme ${theme})
 
   if [[ $wallpaper == "q" || $wallpaper == "" ]]; then
-    kill_process
+    exit
   else
     action
   fi
@@ -41,11 +30,11 @@ action() {
 }
 
 set_wall() {
-  $set $wallpaper && kill_process
+  $set $wallpaper
 }
 
 view_wall() {
-  $view $wallpaper &
+  $view $wallpaper
   set_after_view
 }
 
@@ -55,14 +44,14 @@ set_after_view() {
   if [[ $setorno == "set (permanant)" ]]; then
     set_permanant
   else
-    wch && kill_process
+    wch
   fi
 }
 
 set_permanant() {
-  echo "test"
   set_wall
-  sed -i "59s|.*|exec --no-startup-id feh --bg-fill ${dir}${wallpaper}" $startup_config_file
+  line_to_edit="$(cat $startup_config_file | grep "feh")"
+  sed -i "s|$line_to_edit|exec --no-startup-id feh --bg-fill ${dir}${wallpaper}|g" $startup_config_file
 }
 
 selectpic
